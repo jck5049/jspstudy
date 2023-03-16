@@ -70,6 +70,9 @@ public class HelloSevlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//		request : 사용자 요청		response : 서버응답 이라고 보면 된다.
+		
+		
 		System.out.println("service() 호출");
 		
 		// HTTP Method(요청 메소드)에 따른 doGet() 또는 doPost() 메소드 호출하기
