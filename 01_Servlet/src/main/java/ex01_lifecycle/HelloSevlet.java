@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/HelloSevlet")	// URLMapping 값이다.
+@WebServlet("/HelloServlet")	// URLMapping 값이다.
 
 public class HelloSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
