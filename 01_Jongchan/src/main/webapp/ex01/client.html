@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../resources/js/lib/jquery-3.6.4.min.js"></script>
+<script>
+
+	$(function(){
+		
+			$('#userNm').keyup(function(event){
+ 			var regexp = /^[가-힣]$/;
+			var v = $('#userNm').val();
+			if(regexp.text(v)){
+				alert('잘썼어요.');
+			}else{
+				alert('한글만 입력가능 합니다.');
+			}
+		})
+		
+	});
+	
+</script>
+</head>
+<body>
+
+	<div>
+		<form>
+			<table>
+				<tbody>
+					<tr>
+						<td>이름</td>
+						<td><input id="userNm" type="text" name="userNm"></td>
+					</tr>
+					<tr>
+						<td>아이디</td>
+						<td><input type="text" name="id"></td>
+						<td><input type="button" value="중복확인"></td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" name="pw"></td>
+					</tr>
+					<tr>
+						<td>비밀번호 확인</td>
+						<td><input type="password" name="pw"></td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td><input type="email" name="email">@</td>
+						<td><input type="email" name="email"></td>
+						<td><input type="button" value="중복확인"></td>
+					</tr>
+					<tr>
+						<th colspan="4"><button>회원가입</button></th>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	
+
+</body>
+</html>
