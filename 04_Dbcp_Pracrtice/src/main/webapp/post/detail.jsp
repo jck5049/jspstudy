@@ -8,6 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
+<script>
+	$(function(){
+		$('#btn_remove').click(function(){
+			if(confirm('삭제할까요?')){
+				location.href = '${contextPath}/delete.post?post_no=${post.post_no}';
+			}
+		})
+	})
+</script>
 </head>
 <body>
 
@@ -22,6 +31,11 @@
 			<li>${post.content}</li>
 		</ul>
 	</div>
-
+	
+	<div>
+		<button id="btn_remove">삭제</button>
+	</div>
+	
+	
 </body>
 </html>

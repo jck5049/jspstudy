@@ -27,7 +27,7 @@
 		INSERT INTO BBS
 			(BBS_NO, TITLE, CONTENT, CREATED_DATE)
 		VALUES
-			(BBS_SEQ.NEXTVAL, #{title}, #{content}, TO_CHAR(SYSDATE, 'yy.MM.dd HH:mm:ss'))
+			(BBS_SEQ.NEXTVAL, #{title}, #{content}, TO_CHAR(SYSDATE, 'yy.MM.dd HH:mi:ss'))
 	</insert>
 	
 	
@@ -36,7 +36,7 @@
 		UPDATE BBS
 		   SET TITLE = #{title}
 		     , CONTENT = #{content}
-		     , MODIFIED_DATE = TO_CHAR(SYSDATE, 'yy.MM.dd HH:mm:ss')
+		     , MODIFIED_DATE = TO_CHAR(SYSDATE, 'yy.MM.dd HH:mi:ss')
 		 WHERE BBS_NO = #{bbsNo}
 	</update>
 	
