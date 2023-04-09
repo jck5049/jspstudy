@@ -59,7 +59,7 @@ public class MemberDAO {
 	
 	// 삽입
 	public int insertMember(Member member) {
-		SqlSession ss = factory.openSession();
+		SqlSession ss = factory.openSession(false);
 		int insertResult = ss.insert(NS + "insertMember", member);
 		if(insertResult == 1) {
 			ss.commit();
@@ -70,7 +70,7 @@ public class MemberDAO {
 	
 	// 수정
 	public int updateMember(Member member) {
-		SqlSession ss = factory.openSession();
+		SqlSession ss = factory.openSession(false);
 		int updateResult = ss.update(NS + "updateMember", member);
 		if(updateResult == 1) {
 			ss.commit();
@@ -83,6 +83,7 @@ public class MemberDAO {
 	public int deleteMember(int memberNo) {
 		SqlSession ss = factory.openSession(false);
 		int deleteResult = ss.delete(NS + "deleteMember", memberNo);
+		System.out.println(deleteResult);
 		if(deleteResult == 1) {
 			ss.commit();
 		}
