@@ -7,18 +7,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import domain.Member;
 import repository.MemberDAO;
 
 public class MemberRemoveService implements IMemberService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		// 요청 파라미터
+		
+		// 요청 파라미터(삭제해야 할 회원 번호)
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		
-		// DB에서 memberNo값을 가진 회원 정보 받아오기
+		// int memberNo 객체의 정보를 이용해 DB의 내용을 삭제
 		int deleteResult = MemberDAO.getInstance().deleteMember(memberNo);
 		
 		// 응답 데이터 형식 (JSON)
@@ -26,26 +25,19 @@ public class MemberRemoveService implements IMemberService {
 		
 		// 응답 데이터 만들기
 		/*
-		 	{
-		 		"member": {
-		 			"memberNo": 회원번호,
-		 			"id": 회원아이디,
-		 			"name": 회원명,
-		 			"gender": 성별,
-		 			"address": 주소
-		 		}
-		 	}
-		 */
-		
+			{
+				"deleteResult": 1
+			}
+		*/
 		JSONObject obj = new JSONObject();
-		obj.put("deleteResult", new JSONObject(deleteResult));
+		obj.put("deleteResult", deleteResult);
 		
 		// 응답
 		PrintWriter out = response.getWriter();
-		out.println(obj);
+		out.println(obj.toString());
 		out.flush();
 		out.close();
-		
+
 	}
 
 }
