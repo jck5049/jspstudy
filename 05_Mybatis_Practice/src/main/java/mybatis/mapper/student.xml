@@ -105,7 +105,7 @@
 	
 	<!-- 11. TOP3 -->
 	<select id="selectTop3" resultType="Student">
-		<![CDATA[
+		<![CDATA[	<!-- CDATA는 크기비교하는 코드가 있다면 사용해줘야 한다. 이유는 <로 시작하기 때문에 태그가 시작되는줄 안다. -->
 		SELECT A.RANK, A.STU_NO, A.NAME, A.KOR, A.ENG, A.MATH, A.AVE, A.GRADE
 		  FROM (SELECT RANK() OVER(ORDER BY AVE DESC) AS RANK, STU_NO, NAME, KOR, ENG, MATH, AVE, GRADE
 		          FROM STUDENT) A
