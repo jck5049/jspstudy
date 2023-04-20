@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace는 repository.xe.xml 파일을 의미한다. -->
+<mapper namespace="repository.xe">
+
+	<!-- 목록 보기 -->
+	<select id="list" resultType="Xe">
+		SELECT XE_NO, XE_CONTENT, XE_CREATED_AT
+		  FROM XE
+		 ORDER BY XE_NO DESC
+	</select>
+	
+	<!-- 상세보기 -->
+	<select id="detail" parameterType="int" resultType="Xe">
+		SELECT XE_NO, XE_CONTENT, XE_CREATED_AT
+		  FROM XE
+		 WHERE XE_NO = #{xeNo}
+	</select>
+	
+	
+	
+	
+	
+</mapper>
